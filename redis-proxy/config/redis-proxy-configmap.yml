@@ -1,0 +1,17 @@
+
+---
+# Redis-Proxy Config
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-proxy
+data:
+  proxy.conf: |
+    cluster aa-cluster-master.redis.cache.chinacloudapi.cn:6379     # 配置为Redis Cluster Service
+    bind 0.0.0.0
+    port 7777   # redis-cluster-proxy 对外暴露端口
+    threads 8   # 线程数量
+    daemonize no  
+    enable-cross-slot yes    
+    auth scIuHhakKAvxLJ7l39kMJHw5L9R2zUNkijVZtRmy1mU=
+    log-level error
